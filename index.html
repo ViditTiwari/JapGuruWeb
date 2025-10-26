@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JapGuru - Transform Your Spiritual Practice</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #2d3748;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #fff 0%, #fef5f1 100%);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 28px;
+            font-weight: 700;
+            color: #E5723B;
+        }
+        
+        .logo-image {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .cta-button {
+            background: #E5723B;
+            color: white;
+            padding: 12px 28px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(229, 114, 59, 0.3);
+        }
+
+        .cta-button:hover {
+            background: #CA5C2E;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(229, 114, 59, 0.4);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #fff5f0 0%, #ffe8dc 100%);
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(229, 114, 59, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            top: -300px;
+            right: -200px;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-text h1 {
+            font-size: 52px;
+            color: #1a202c;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero-text h1 .highlight {
+            color: #E5723B;
+        }
+
+        .hero-text p {
+            font-size: 20px;
+            color: #4a5568;
+            margin-bottom: 30px;
+            line-height: 1.7;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 32px;
+            font-weight: 700;
+            color: #E5723B;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: #718096;
+            margin-top: 5px;
+        }
+
+        .download-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .store-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #1a202c;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 12px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .store-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        .hero-image {
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+
+        .phone-mockup {
+            max-width: 350px;
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            transform: rotate(-5deg);
+            transition: transform 0.3s ease;
+        }
+
+        .phone-mockup:hover {
+            transform: rotate(0deg) scale(1.05);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 42px;
+            color: #1a202c;
+            margin-bottom: 15px;
+        }
+
+        .section-header p {
+            font-size: 18px;
+            color: #718096;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+        }
+
+        .feature-card {
+            padding: 35px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, #fff 0%, #fef9f7 100%);
+            border: 2px solid #ffe8dc;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(229, 114, 59, 0.15);
+            border-color: #E5723B;
+        }
+
+        .feature-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            font-size: 22px;
+            color: #1a202c;
+            margin-bottom: 12px;
+        }
+
+        .feature-card p {
+            color: #4a5568;
+            line-height: 1.6;
+        }
+
+        /* Screenshots Section */
+        .screenshots {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #fff5f0 0%, #ffe8dc 100%);
+        }
+
+        .screenshots-carousel {
+            display: flex;
+            gap: 30px;
+            overflow-x: auto;
+            padding: 20px 0;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .screenshots-carousel::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .screenshots-carousel::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+
+        .screenshots-carousel::-webkit-scrollbar-thumb {
+            background: #E5723B;
+            border-radius: 10px;
+        }
+
+        .screenshot-item {
+            flex: 0 0 300px;
+            scroll-snap-align: center;
+        }
+
+        .screenshot-item img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .screenshot-item img:hover {
+            transform: scale(1.05);
+        }
+
+        /* How It Works */
+        .how-it-works {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 50px;
+            margin-top: 60px;
+        }
+
+        .step {
+            text-align: center;
+            position: relative;
+        }
+
+        .step-number {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #E5723B 0%, #CA5C2E 100%);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            font-weight: 700;
+            margin: 0 auto 25px;
+            box-shadow: 0 8px 20px rgba(229, 114, 59, 0.3);
+        }
+
+        .step h3 {
+            font-size: 22px;
+            color: #1a202c;
+            margin-bottom: 12px;
+        }
+
+        .step p {
+            color: #4a5568;
+            line-height: 1.6;
+        }
+
+        /* Market Section */
+        .market-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+            color: white;
+        }
+
+        .market-section .section-header h2,
+        .market-section .section-header p {
+            color: white;
+        }
+
+        .market-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .market-stat {
+            text-align: center;
+            padding: 40px 30px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            border: 1px solid rgba(229, 114, 59, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .market-stat:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-10px);
+            border-color: #E5723B;
+        }
+
+        .market-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .market-stat h3 {
+            font-size: 42px;
+            color: #E5723B;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .market-stat p {
+            font-size: 18px;
+            color: white;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .market-detail {
+            font-size: 14px;
+            color: #a0aec0;
+            display: block;
+            line-height: 1.5;
+        }
+
+        /* Audience Section */
+        .audience-section {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .audience-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .audience-card {
+            padding: 35px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, #fff 0%, #fef9f7 100%);
+            border: 2px solid #ffe8dc;
+            transition: all 0.3s ease;
+        }
+
+        .audience-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(229, 114, 59, 0.15);
+            border-color: #E5723B;
+        }
+
+        .audience-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .audience-card h3 {
+            font-size: 22px;
+            color: #1a202c;
+            margin-bottom: 15px;
+        }
+
+        .audience-card p {
+            color: #4a5568;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .audience-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tag {
+            background: #ffe8dc;
+            color: #CA5C2E;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .audience-insight {
+            margin-top: 60px;
+            padding: 40px;
+            background: linear-gradient(135deg, #fff5f0 0%, #ffe8dc 100%);
+            border-radius: 20px;
+            border-left: 5px solid #E5723B;
+        }
+
+        .audience-insight h3 {
+            font-size: 24px;
+            color: #E5723B;
+            margin-bottom: 15px;
+        }
+
+        .audience-insight p {
+            font-size: 18px;
+            color: #2d3748;
+            line-height: 1.8;
+            font-style: italic;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #E5723B 0%, #CA5C2E 100%);
+            text-align: center;
+            color: white;
+        }
+
+        .cta-section h2 {
+            font-size: 42px;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 20px;
+            margin-bottom: 40px;
+            opacity: 0.95;
+        }
+
+        .cta-section .cta-button {
+            background: white;
+            color: #E5723B;
+            font-size: 18px;
+            padding: 16px 40px;
+        }
+
+        .cta-section .cta-button:hover {
+            background: #f7fafc;
+            transform: translateY(-3px);
+        }
+
+        /* Footer */
+        footer {
+            background: #1a202c;
+            color: #a0aec0;
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 50px;
+            margin-bottom: 40px;
+        }
+
+        .footer-about h3 {
+            color: #E5723B;
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .footer-about p {
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .footer-links h4 {
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #a0aec0;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #E5723B;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #2d3748;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 36px;
+            }
+
+            .hero-stats {
+                justify-content: center;
+            }
+
+            .download-buttons {
+                justify-content: center;
+            }
+
+            .phone-mockup {
+                max-width: 280px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .section-header h2 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">
+            <img src="assets/images/logo.png" alt="JapGuru Logo" class="logo-image">
+            <span>JapGuru</span>
+        </div>
+            <a href="https://play.google.com/store/apps/details?id=com.mantra.japguru" class="cta-button" target="_blank" rel="noopener noreferrer">Download Now</a>        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Transform Your <span class="highlight">Spiritual Practice</span> Into Daily Habit</h1>
+                    <p>JapGuru makes devotion digital, social & intelligent. Experience gamified Naam Japa with AI guidance and connect with a community of devotees.</p>
+                    
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <span class="stat-number">5M+</span>
+                            <span class="stat-label">Bead Swipes</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">40%</span>
+                            <span class="stat-label">Retention Rate</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">12K+</span>
+                            <span class="stat-label">Active Devotees</span>
+                        </div>
+                    </div>
+
+                    <div class="download-buttons">
+                            <a href="https://play.google.com/store/apps/details?id=com.mantra.japguru" class="store-button" target="_blank" rel="noopener noreferrer">                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.5,12.92 20.16,13.19L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/>
+                            </svg>
+                            <div>
+                                <div style="font-size: 10px; opacity: 0.8;">GET IT ON</div>
+                                <div style="font-size: 14px; font-weight: 700;">Google Play</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                
+            <div class="hero-image">
+                <img src="assets/images/hero.jpg" alt="JapGuru App" class="phone-mockup">
+            </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Features That Enhance Your Journey</h2>
+                <p>Everything you need to build a consistent spiritual practice</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📿</div>
+                    <h3>Digital Mala Counter</h3>
+                    <p>Track your japa with an intuitive digital counter. Swipe beads just like a physical mala with realistic haptic feedback.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🎮</div>
+                    <h3>Gamified Devotion</h3>
+                    <p>Earn Punya Points, maintain streaks, and unlock spiritual wisdom. Daily hajiri and multipliers keep you motivated.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🏆</div>
+                    <h3>Leaderboards</h3>
+                    <p>Join nationwide and friend-based challenges. Compete in festive events and climb the devotion rankings.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🤖</div>
+                    <h3>AI Spiritual Guidance</h3>
+                    <p>Get personalized mantra recommendations and contextual nudges from our AI Guru, built with authenticity and care.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🌸</div>
+                    <h3>Mantra Library</h3>
+                    <p>Choose from various mantras with detailed meanings. Select the right mala type for your practice from Tulsi, Rudraksha, and more.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">👥</div>
+                    <h3>Community Connection</h3>
+                    <p>Share your progress, participate in group challenges, and build new spiritual habits with fellow devotees.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="screenshots">
+        <div class="container">
+            <div class="section-header">
+                <h2>Experience JapGuru</h2>
+                <p>A glimpse into your spiritual companion</p>
+            </div>
+            
+            <div class="screenshots-carousel">
+                <div class="screenshot-item">
+                    <img src="assets/images/home.jpg" alt="Home Screen">
+                </div>
+                <div class="screenshot-item">
+                    <img src="assets/images/leaderboard.jpg" alt="Leaderboard">
+                </div>
+                <div class="screenshot-item">
+                    <img src="assets/images/mystats.jpg" alt="Progress">
+                </div>
+                <div class="screenshot-item">
+                    <img src="assets/images/mantras.jpg" alt="Mantras">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <h2>How It Works</h2>
+                <p>Start your spiritual journey in three simple steps</p>
+            </div>
+            
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Choose Your Mantra</h3>
+                    <p>Select from our library of sacred mantras or add your own favorite. Each comes with meaning and guidance.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Start Your Japa</h3>
+                    <p>Swipe the digital beads as you chant. Track your progress and earn Punya Points with every mala completed.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Build Consistency</h3>
+                    <p>Maintain daily streaks, climb leaderboards, and unlock AI guidance as you deepen your practice.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="market-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>The Digital Spirituality Revolution</h2>
+                <p>Faith × Wellness × AI — the next evolution of the wellness economy</p>
+            </div>
+            
+            <div class="market-grid">
+                <div class="market-stat">
+                    <div class="market-icon">🇮🇳</div>
+                    <h3>$60B+</h3>
+                    <p>India's Faith-Tech Market</p>
+                    <span class="market-detail">Rapidly digitizing with 8.2% CAGR (2025-2030)</span>
+                </div>
+                
+                <div class="market-stat">
+                    <div class="market-icon">📱</div>
+                    <h3>300M+</h3>
+                    <p>Smartphone Users</p>
+                    <span class="market-detail">Engaging with devotional content weekly</span>
+                </div>
+                
+                <div class="market-stat">
+                    <div class="market-icon">🧘</div>
+                    <h3>35%</h3>
+                    <p>YoY Growth</p>
+                    <span class="market-detail">Meditation & wellness apps like Calm, Headspace</span>
+                </div>
+                
+                <div class="market-stat">
+                    <div class="market-icon">🎯</div>
+                    <h3>$120M</h3>
+                    <p>Serviceable Market</p>
+                    <span class="market-detail">Japa niche from $2.5B TAM | $600M SAM</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="audience-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Built For Modern Devotees</h2>
+                <p>JapGuru is the digital mala for today's spiritual seekers</p>
+            </div>
+            
+            <div class="audience-grid">
+                <div class="audience-card">
+                    <div class="audience-icon">👨‍💼</div>
+                    <h3>Urban Professionals</h3>
+                    <p>Busy professionals seeking spiritual grounding in a distracted world. Need flexibility to practice devotion anywhere, anytime.</p>
+                    <div class="audience-tags">
+                        <span class="tag">25-45 years</span>
+                        <span class="tag">Time-conscious</span>
+                        <span class="tag">Tech-savvy</span>
+                    </div>
+                </div>
+                
+                <div class="audience-card">
+                    <div class="audience-icon">🎓</div>
+                    <h3>Students & Youth</h3>
+                    <p>Young Indians looking to connect with tradition through modern means. Want gamification and social features to stay motivated.</p>
+                    <div class="audience-tags">
+                        <span class="tag">15-24 years</span>
+                        <span class="tag">Community-driven</span>
+                        <span class="tag">Competitive</span>
+                    </div>
+                </div>
+                
+                <div class="audience-card">
+                    <div class="audience-icon">👴</div>
+                    <h3>Elders & Devotees</h3>
+                    <p>Traditional practitioners embracing digital tools. Appreciate tracking their spiritual journey and connecting with like-minded souls.</p>
+                    <div class="audience-tags">
+                        <span class="tag">45+ years</span>
+                        <span class="tag">Consistent</span>
+                        <span class="tag">Dedicated</span>
+                    </div>
+                </div>
+                
+                <div class="audience-card">
+                    <div class="audience-icon">🌍</div>
+                    <h3>NRIs & Diaspora</h3>
+                    <p>Indians abroad maintaining cultural and spiritual connections. Seek authentic devotional experiences and community support.</p>
+                    <div class="audience-tags">
+                        <span class="tag">All ages</span>
+                        <span class="tag">Nostalgic</span>
+                        <span class="tag">Connected</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="audience-insight">
+                <h3>🔑 Key Insight</h3>
+                <p>"The world is spiritual… but not disciplined. Millions seek spiritual grounding but struggle with consistency. Existing apps focus on meditation, not Hindu japa. JapGuru fills this gap by making devotion digital, social, and intelligent."</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <h2>Join 40,000+ Indians on Their Spiritual Journey</h2>
+            <p>Experience the perfect blend of ancient devotion and modern technology</p>
+            <a href="https://play.google.com/store/apps/details?id=com.mantra.japguru" class="cta-button" target="_blank" rel="noopener noreferrer">Download JapGuru Now</a>        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <h3>JapGuru</h3>
+                    <p>Making daily devotion digital, social & intelligent. We're building the world's first Spiritual OS to help millions build consistent spiritual practices.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="#">Features</a></li>
+                        <li><a href="#">How it Works</a></li>
+                        <li><a href="#">Download</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 JapGuru. All rights reserved. Built with devotion 🙏</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
